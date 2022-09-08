@@ -14,7 +14,12 @@ public class CodeEncryptionOfOneWay {
 	}
 	
 	public ArrayList<CodeObject> getEncryptingCode() {
+		return getArrayListOfCodeEncryptionOfOneWay();
+	}
+
+	private ArrayList<CodeObject> getArrayListOfCodeEncryptionOfOneWay() {
 		ArrayList<CodeObject> co = new ArrayList<CodeObject>();
+		co.add(actionOfEncryptingCode(idCode, pwdCode));
 		return co;
 	}
 	
