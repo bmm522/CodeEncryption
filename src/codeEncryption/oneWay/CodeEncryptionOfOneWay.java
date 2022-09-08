@@ -89,7 +89,7 @@ public class CodeEncryptionOfOneWay {
 	}
 	
 	@SuppressWarnings("unused")
-	private static String getSalt() {
+	private static String getSalt(plus) {
 		byte[] randomByte = makeRandomByteArr();
 		String salt = new String(Base64.getEncoder().encode(randomByte));
 		return salt;
