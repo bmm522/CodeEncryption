@@ -7,18 +7,24 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 public class CodeEncryptionOfOneWay {
-	private String code;
-	private String salt;
-	
+	private static String code;
+	private static String salt;
+	public static void main(String[] args) {
+		String codeex = "1234";
+		System.out.println(codeWithSaltEncryption());
+		System.out.println(codeEncryptionString(codeex));
+		System.out.println(getSalt());
+	}
 	public CodeEncryptionOfOneWay() {
 		
 	}
 	
 	public CodeEncryptionOfOneWay(String code) {
 		this.code = code;
+		this.salt = getSalt();
 	}
 	
-	public static String codeWithSaltEncryption(String code) {
+	public static String codeWithSaltEncryption() {
 		return codeWithSaltEncryptionString(code);
 	}
 	
@@ -37,13 +43,34 @@ public class CodeEncryptionOfOneWay {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
-			md.update(makeSalt(code).getBytes());
+			md.update(getSalt().getBytes());
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 		return String.format("%064x", new BigInteger(1, md.digest()));
 	}
-
+	
+	private static boolean compareEncrypingCode(String checkCode) {
+		String checkString = salt+checkCode;
+		String compareCode = "";
+		MessageDigest md = null;
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+			md.update(checkString.getBytes());
+			compareCode = String.format("%64x", new BigInteger(1, md.digest()));
+		} catch(NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return checkEncrypingCode(compareCode);
+	}
+	
+	private static boolean checkEncrypingCode(String compareCode) {
+		if(compareCode.equals(codeWithSaltEncryption())) {
+			return true;
+		} 
+		return false;
+	}
+	
 	private static byte[] makeRandomByteArr() {
 		SecureRandom random = null;
 		byte[] randomByte = null;
@@ -58,13 +85,13 @@ public class CodeEncryptionOfOneWay {
 	}
 	
 	@SuppressWarnings("unused")
-	private static String makeSalt(String code) {
+	private static String getSalt(String code) {
 		byte[] randomByte = makeRandomByteArr();
 		String salt = new String(Base64.getEncoder().encode(randomByte));
-		return salt+code;
+		return salt;
 	}
 	
-	public static String getSalt(String code) {
+	public static String getSalt() {
 		return makeSalt(code);
 	}
 	
