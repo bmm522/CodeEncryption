@@ -11,9 +11,13 @@ public class CodeEncryptionOfOneWay {
 	private static String salt;
 	public static void main(String[] args) {
 		String codeex = "1234";
-		System.out.println(codeWithSaltEncryption());
+		CodeEncryptionOfOneWay co = new CodeEncryptionOfOneWay(code);
+	//	System.out.println(codeWithSaltEncryption());
 		System.out.println(codeEncryptionString(codeex));
 		System.out.println(getSalt());
+		
+		String checkcode = "1234";
+		System.out.println(compareEncrypingCode(checkcode));
 	}
 	public CodeEncryptionOfOneWay() {
 		
@@ -51,7 +55,7 @@ public class CodeEncryptionOfOneWay {
 	}
 	
 	private static boolean compareEncrypingCode(String checkCode) {
-		String checkString = salt+checkCode;
+		String checkString = codeEncryptionString(code)+checkCode;
 		String compareCode = "";
 		MessageDigest md = null;
 		try {
@@ -85,15 +89,12 @@ public class CodeEncryptionOfOneWay {
 	}
 	
 	@SuppressWarnings("unused")
-	private static String getSalt(String code) {
+	private static String getSalt() {
 		byte[] randomByte = makeRandomByteArr();
 		String salt = new String(Base64.getEncoder().encode(randomByte));
 		return salt;
 	}
-	
-	public static String getSalt() {
-		return makeSalt(code);
-	}
+
 	
 
 }
