@@ -4,7 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-public class MakeSalt {
+public class Salt {
 	private String salt = ""; 
 	
 	

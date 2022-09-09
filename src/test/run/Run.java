@@ -13,6 +13,8 @@ public class Run {
 		CodeEncryptionOfOneWay cw = new CodeEncryptionOfOneWay(id, pwd);
 		arr = cw.getEncryptingCode();
 		
-		System.out.println(arr.get(0).getIdCode()+", "+ arr.get(0).getSaltCode()+", "+ arr.get(0).getHashCode());
+		System.out.println(arr.get(0).getIdCode()+", "
+						 + arr.get(0).getSaltCode()+", "
+				         + arr.get(0).getHashCode());
 	}
 }
