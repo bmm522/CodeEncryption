@@ -2,7 +2,7 @@ package test.run;
 
 import java.util.ArrayList;
 
-import codeEncryption.oneWay.action.hash.CheckMachingCode;
+import codeEncryption.oneWay.action.check.CheckMachingCode;
 import codeEncryption.oneWay.codeObject.CodeEntity;
 import codeEncryption.oneWay.main.CodeEncryptionOfOneWay;
 

@@ -1,4 +1,6 @@
-package codeEncryption.oneWay.action.hash;
+package codeEncryption.oneWay.action.check;
+
+import codeEncryption.oneWay.action.hash.HashCode;
 
 public class CheckMachingCode {
 //	private CodeEntity cObj = new CodeEntity();

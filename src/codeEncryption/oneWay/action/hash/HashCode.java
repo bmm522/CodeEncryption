@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashCode {
+	private String plusString = "";
 	
 	public String actionOfMakeHash(String salt, String pwdCode) {
 		return gethash(salt, pwdCode);
@@ -14,7 +15,7 @@ public class HashCode {
 		return actionOfEncryption(plusStr(salt,pwdCode));
 	}
 
-	protected String actionOfEncryption(String plusStr) {
+	public String actionOfEncryption(String plusStr) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
@@ -25,9 +26,10 @@ public class HashCode {
 		return String.format("%064x", new BigInteger(1, md.digest()));
 	}
 
-	protected String plusStr(String salt, String pwdCode) {
+	public String plusStr(String salt, String pwdCode) {
 		return salt+pwdCode;
 	}
+	
 	
 //	public boolean checkMachingHashCode(String idCode, String pwdCode, String salt, String hashCode) {
 //		if(actionOfEncryption(plusStr(salt, pwdCode)).equals(hashCode)){
