@@ -3,7 +3,7 @@ package codeEncryption.oneWay.main;
 import java.util.ArrayList;
 
 import codeEncryption.oneWay.action.CheckMachingCode;
-import codeEncryption.oneWay.codeObject.CodeObject;
+import codeEncryption.oneWay.codeObject.CodeEntity;
 
 public class CodeEncryptionOfOneWay {
 	private String idCode;
@@ -14,12 +14,12 @@ public class CodeEncryptionOfOneWay {
 		this.pwdCode = pwdCode;
 	}
 	
-	public ArrayList<CodeObject> getEncryptingCode() {
+	public ArrayList<CodeEntity> getEncryptingCode() {
 		return getArrayListOfCodeEncryptionOfOneWay();
 	}
 
-	private ArrayList<CodeObject> getArrayListOfCodeEncryptionOfOneWay() {
-		ArrayList<CodeObject> co = new ArrayList<CodeObject>();
+	private ArrayList<CodeEntity> getArrayListOfCodeEncryptionOfOneWay() {
+		ArrayList<CodeEntity> co = new ArrayList<CodeEntity>();
 		co.add(ma.actionOfEncryptingCode(idCode, pwdCode));
 		return co;
 	}

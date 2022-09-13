@@ -3,14 +3,14 @@ package test.run;
 import java.util.ArrayList;
 
 import codeEncryption.oneWay.action.CheckMachingCode;
-import codeEncryption.oneWay.codeObject.CodeObject;
+import codeEncryption.oneWay.codeObject.CodeEntity;
 import codeEncryption.oneWay.main.CodeEncryptionOfOneWay;
 
 public class Run {
 	public static void main(String[] args) {
 		String id = "bmm522";
 		String pwd = "1234";
-		ArrayList<CodeObject> arr = new ArrayList<CodeObject>();
+		ArrayList<CodeEntity> arr = new ArrayList<CodeEntity>();
 		CheckMachingCode ma = new CheckMachingCode();
 		CodeEncryptionOfOneWay cw = new CodeEncryptionOfOneWay(id, pwd);
 		arr = cw.getEncryptingCode();

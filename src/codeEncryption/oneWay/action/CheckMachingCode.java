@@ -2,14 +2,14 @@ package codeEncryption.oneWay.action;
 
 import codeEncryption.oneWay.action.hash.HashCode;
 import codeEncryption.oneWay.action.salt.Salt;
-import codeEncryption.oneWay.codeObject.CodeObject;
+import codeEncryption.oneWay.codeObject.CodeEntity;
 
 public class CheckMachingCode {
-	private CodeObject cObj = new CodeObject();
+	private CodeEntity cObj = new CodeEntity();
 	private Salt ms = new Salt();
 	private HashCode hc = new HashCode();
 	
-	public CodeObject actionOfEncryptingCode(String idCode, String pwdCode) {
+	public CodeEntity actionOfEncryptingCode(String idCode, String pwdCode) {
 		cObj.setIdCode(idCode);
 		cObj.setSaltCode(ms.actionOfMakeSalt());
 		cObj.setHashCode(hc.actionOfMakeHash(ms.getSalt(), pwdCode));

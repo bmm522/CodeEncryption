@@ -1,6 +1,6 @@
 package codeEncryption.oneWay.codeObject;
 
-public class CodeObject {
+public class CodeEntity {
 	private String idCode;
 	private String saltCode;
 	private String HashCode;
