@@ -14,7 +14,7 @@ public class HashCode {
 		return actionOfEncryption(plusStr(salt,pwdCode));
 	}
 
-	private String actionOfEncryption(String plusStr) {
+	public String actionOfEncryption(String plusStr) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
@@ -25,14 +25,14 @@ public class HashCode {
 		return String.format("%064x", new BigInteger(1, md.digest()));
 	}
 
-	private String plusStr(String salt, String pwdCode) {
+	public String plusStr(String salt, String pwdCode) {
 		return salt+pwdCode;
 	}
 	
-	public boolean checkMachingHashCode(String idCode, String pwdCode, String salt, String hashCode) {
-		if(actionOfEncryption(plusStr(salt, pwdCode)).equals(hashCode)){
-			return true;
-		}
-		return false;
-	}
+//	public boolean checkMachingHashCode(String idCode, String pwdCode, String salt, String hashCode) {
+//		if(actionOfEncryption(plusStr(salt, pwdCode)).equals(hashCode)){
+//			return true;
+//		}
+//		return false;
+//	}
 }

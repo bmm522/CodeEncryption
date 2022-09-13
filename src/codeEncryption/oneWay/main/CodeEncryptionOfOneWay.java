@@ -2,7 +2,6 @@ package codeEncryption.oneWay.main;
 
 import java.util.ArrayList;
 
-import codeEncryption.oneWay.action.CheckMachingCode;
 import codeEncryption.oneWay.action.hash.HashCode;
 import codeEncryption.oneWay.action.salt.Salt;
 import codeEncryption.oneWay.codeObject.CodeEntity;
@@ -13,7 +12,6 @@ public class CodeEncryptionOfOneWay {
 	private CodeEntity cObj = new CodeEntity();
 	private Salt ms = new Salt();
 	private HashCode hc = new HashCode();
-	private CheckMachingCode ma = new CheckMachingCode();
 	
 	public CodeEncryptionOfOneWay(String idCode, String pwdCode) {
 		this.idCode = idCode;
@@ -30,7 +28,7 @@ public class CodeEncryptionOfOneWay {
 		return ce;
 	}
 	
-	public CodeEntity actionOfEncryptingCode(String idCode, String pwdCode) {
+	private CodeEntity actionOfEncryptingCode(String idCode, String pwdCode) {
 		cObj.setIdCode(idCode);
 		cObj.setSaltCode(ms.actionOfMakeSalt());
 		cObj.setHashCode(hc.actionOfMakeHash(ms.getSalt(), pwdCode));
