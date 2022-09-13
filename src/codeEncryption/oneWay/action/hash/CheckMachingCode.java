@@ -1,6 +1,4 @@
-package codeEncryption.oneWay.action;
-
-import codeEncryption.oneWay.action.hash.HashCode;
+package codeEncryption.oneWay.action.hash;
 
 public class CheckMachingCode {
 //	private CodeEntity cObj = new CodeEntity();
@@ -12,7 +10,7 @@ public class CheckMachingCode {
 		return checkMachingHashCode(idCode, pwdCode, salt, hashCode);
 	}
 	
-	public boolean checkMachingHashCode(String idCode, String pwdCode, String salt, String hashCode) {
+	private boolean checkMachingHashCode(String idCode, String pwdCode, String salt, String hashCode) {
 		if(hc.actionOfEncryption(hc.plusStr(salt, pwdCode)).equals(hashCode)){
 			return true;
 		}

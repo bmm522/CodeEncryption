@@ -14,7 +14,7 @@ public class HashCode {
 		return actionOfEncryption(plusStr(salt,pwdCode));
 	}
 
-	public String actionOfEncryption(String plusStr) {
+	protected String actionOfEncryption(String plusStr) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
@@ -25,7 +25,7 @@ public class HashCode {
 		return String.format("%064x", new BigInteger(1, md.digest()));
 	}
 
-	public String plusStr(String salt, String pwdCode) {
+	protected String plusStr(String salt, String pwdCode) {
 		return salt+pwdCode;
 	}
 	
