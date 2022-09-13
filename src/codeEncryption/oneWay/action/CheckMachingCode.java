@@ -4,7 +4,7 @@ import codeEncryption.oneWay.action.hash.HashCode;
 import codeEncryption.oneWay.action.salt.Salt;
 import codeEncryption.oneWay.codeObject.CodeObject;
 
-public class MainAction {
+public class CheckMachingCode {
 	private CodeObject cObj = new CodeObject();
 	private Salt ms = new Salt();
 	private HashCode hc = new HashCode();

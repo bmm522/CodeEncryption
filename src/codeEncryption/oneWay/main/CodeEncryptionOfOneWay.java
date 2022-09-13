@@ -2,13 +2,13 @@ package codeEncryption.oneWay.main;
 
 import java.util.ArrayList;
 
-import codeEncryption.oneWay.action.MainAction;
+import codeEncryption.oneWay.action.CheckMachingCode;
 import codeEncryption.oneWay.codeObject.CodeObject;
 
 public class CodeEncryptionOfOneWay {
 	private String idCode;
 	private String pwdCode;
-	private MainAction ma = new MainAction();
+	private CheckMachingCode ma = new CheckMachingCode();
 	public CodeEncryptionOfOneWay(String idCode, String pwdCode) {
 		this.idCode = idCode;
 		this.pwdCode = pwdCode;

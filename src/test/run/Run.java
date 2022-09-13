@@ -2,6 +2,7 @@ package test.run;
 
 import java.util.ArrayList;
 
+import codeEncryption.oneWay.action.CheckMachingCode;
 import codeEncryption.oneWay.codeObject.CodeObject;
 import codeEncryption.oneWay.main.CodeEncryptionOfOneWay;
 
@@ -10,11 +11,18 @@ public class Run {
 		String id = "bmm522";
 		String pwd = "1234";
 		ArrayList<CodeObject> arr = new ArrayList<CodeObject>();
+		CheckMachingCode ma = new CheckMachingCode();
 		CodeEncryptionOfOneWay cw = new CodeEncryptionOfOneWay(id, pwd);
 		arr = cw.getEncryptingCode();
 		
 		System.out.println(arr.get(0).getIdCode()+", "
 						 + arr.get(0).getSaltCode()+", "
 				         + arr.get(0).getHashCode());
+		
+		if(ma.checkMachingCode(id, pwd, "q3PQaVhB26STXLaWSer74w==", "fc4fd4216086f578249f6fa096cd76bee051106826826742e7825d6c1651f262")) {
+			System.out.println("일치");
+		} else {
+			System.out.println("불일치");
+		}
 	}
 }
