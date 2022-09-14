@@ -19,7 +19,7 @@ public class Run {
 						 + arr.get(0).getSaltCode()+", "
 				         + arr.get(0).getHashCode());
 		
-		if(ma.checkMachingCode(id, pwd, "q3PQaVhB26STXLaWSer74w==", "fc4fd4216086f578249f6fa096cd76bee051106826826742e7825d6c1651f262")) {
+		if(ma.checkMachingCode(pwd, "q3PQaVhB26STXLaWSer74w==", "fc4fd4216086f578249f6fa096cd76bee051106826826742e7825d6c1651f262")) {
 			System.out.println("일치");
 		} else {
 			System.out.println("불일치");
