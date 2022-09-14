@@ -23,9 +23,9 @@ public class CodeEncryptionOfOneWay {
 	}
 
 	private ArrayList<CodeEntity> getArrayListOfCodeEncryptionOfOneWay() {
-		ArrayList<CodeEntity> ce = new ArrayList<CodeEntity>();
-		ce.add(actionOfEncryptingCode(idCode, pwdCode));
-		return ce;
+		ArrayList<CodeEntity> ceArr = new ArrayList<CodeEntity>();
+		ceArr.add(actionOfEncryptingCode(idCode, pwdCode));
+		return ceArr;
 	}
 	
 	private CodeEntity actionOfEncryptingCode(String idCode, String pwdCode) {
