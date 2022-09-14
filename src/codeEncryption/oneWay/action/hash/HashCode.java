@@ -5,15 +5,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashCode {
-	private String plusString = "";
+
 	
 	public String actionOfMakeHash(String salt, String pwdCode) {
-		return gethash(salt, pwdCode);
+		return actionOfEncryption(plusStr(salt, pwdCode));
 	}
 
-	private String gethash(String salt, String pwdCode) {
-		return actionOfEncryption(plusStr(salt,pwdCode));
-	}
 
 	public String actionOfEncryption(String plusStr) {
 		MessageDigest md = null;

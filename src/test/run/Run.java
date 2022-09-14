@@ -24,5 +24,6 @@ public class Run {
 		} else {
 			System.out.println("ºÒÀÏÄ¡");
 		}
+		
 	}
 }
