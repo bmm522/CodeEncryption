@@ -9,7 +9,7 @@ import codeEncryption.oneWay.codeObject.CodeEntity;
 public class CodeEncryptionOfOneWay {
 	private String idCode;
 	private String pwdCode;
-	private CodeEntity cObj = new CodeEntity();
+	
 	private Salt ms = new Salt();
 	private HashCode hc = new HashCode();
 	
@@ -29,9 +29,7 @@ public class CodeEncryptionOfOneWay {
 	}
 	
 	private CodeEntity actionOfEncryptingCode(String idCode, String pwdCode) {
-		cObj.setIdCode(idCode);
-		cObj.setSaltCode(ms.actionOfMakeSalt());
-		cObj.setHashCode(hc.actionOfMakeHash(ms.getSalt(), pwdCode));
+		CodeEntity cObj = new CodeEntity(idCode,ms.actionOfMakeSalt(),hc.actionOfMakeHash(ms.getSalt(), pwdCode));
 		return cObj;
 	}
 	

@@ -3,9 +3,15 @@ package codeEncryption.oneWay.codeObject;
 public class CodeEntity {
 	private String idCode;
 	private String saltCode;
-	private String HashCode;
+	private String hashCode;
 	
+	public CodeEntity() {}
 	
+	public CodeEntity(String idCode, String saltCode, String hashCode) {
+		this.idCode=idCode;
+		this.saltCode=saltCode;
+		this.hashCode=hashCode;
+	}
 	public String getIdCode() {
 		return idCode;
 	}
@@ -19,10 +25,10 @@ public class CodeEntity {
 		this.saltCode = saltCode;
 	}
 	public String getHashCode() {
-		return HashCode;
+		return hashCode;
 	}
 	public void setHashCode(String hashCode) {
-		HashCode = hashCode;
+		this.hashCode = hashCode;
 	}
 	
 	
