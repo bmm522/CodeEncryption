@@ -7,6 +7,7 @@ import codeEncryption.oneWay.action.salt.Salt;
 import codeEncryption.oneWay.codeObject.CodeEntity;
 
 public class CodeEncryptionOfOneWay {
+	
 	private String idCode;
 	private String pwdCode;
 	
