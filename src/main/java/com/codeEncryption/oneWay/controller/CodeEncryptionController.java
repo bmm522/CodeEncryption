@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.codeEncryption.oneWay.Service.CodeEncryptionService;
 import com.codeEncryption.oneWay.codeObject.CodeEntity;
+import com.codeEncryption.oneWay.service.CodeEncryptionService;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
@@ -25,13 +25,14 @@ public class CodeEncryptionController {
 	
 	@PostMapping("/code-encryption")
 	@ResponseBody
-	public  Map<String, object> getSaltAndHashCode(@RequestBody String data) {
+	public  Map<String, Object> getSaltAndHashCode(@RequestBody String data) {
 		HashMap<String,Object> codeEncryptionMap = new HashMap<String,Object>();
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(data);
+
 		ArrayList<CodeEntity> codeEntity = new ArrayList<CodeEntity>();
-		codeEntity = codeEncryptionService.getSaltAndHashCode(element.getAsJsonObject().get("userId").getAsString(),
-																							 element.getAsJsonObject().get("userId").getAsString());
+		codeEntity = codeEncryptionService.getSaltAndHashCode(element.getAsJsonObject().get("id").getAsString(),
+																							 element.getAsJsonObject().get("pwd").getAsString());
 		
 		codeEncryptionMap.put("id", codeEntity.get(0).getIdCode());
 		codeEncryptionMap.put("salt", codeEntity.get(0).getSaltCode());
